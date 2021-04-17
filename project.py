@@ -27,6 +27,6 @@ def csv_load(file): # suuplementry to load a CSV file and return as df, in the f
     return df
 
 
-df = csv_load("feature_data.csv")
+df = csv_load("Data/feature_data.csv")
 df = convert_column_to_num_month(df, "order_month")
 print(df)
