@@ -1,10 +1,16 @@
 from time import strptime
+
+import matplotlib
 import pandas as pd
 import numpy as np
 import matplotlib as plt
 
 
-## Supllemntry functions for data parsing and tidying
+# Supplementary functions for data parsing and tidying
+
+# Month to int function
+from matplotlib.pyplot import plot, xlabel, ylabel, title, show
+
 
 def month_str_to_int(month): # convert a month's name to a float number
     try:
@@ -26,7 +32,28 @@ def csv_load(file): # suuplementry to load a CSV file and return as df, in the f
     df = pd.read_csv(file)
     return df
 
+#Correlation creator
+## This function shall be used for numeric features only
 
-df = csv_load("Data/feature_data.csv")
-df = convert_column_to_num_month(df, "order_month")
-print(df)
+def plot_correlations(feature1, feature2):
+    plot(df[feature1], df[feature2],)
+    xlabel(feature1)
+    ylabel(feature2)
+    title(("The correlation between {} and {}".format(feature1, feature2)))
+    show()
+    return
+
+
+# Main build
+
+df = csv_load("Data/feature_data.csv") #Reading the CSV data file
+features = df.columns
+
+# Data manipulations
+
+df["order_month"] = convert_column_to_num_month(df, "order_month")
+
+# Plotting
+
+
+
