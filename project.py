@@ -54,6 +54,7 @@ features = df.columns
 df["order_month"] = convert_column_to_num_month(df, "order_month")
 
 # Plotting
+plot_correlations("order_month", "children")
 
 
 
