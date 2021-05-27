@@ -11,6 +11,15 @@ def month_str_to_int(month):  # convert a month's name to a float number
     return month_num
 
 
+def month_int_to_str(month):  # convert a month's number to a name
+    try:
+        month = str(month)
+        month_name = strptime(month, '%B').tm_mon
+    except:
+        return month
+    return month_name
+
+
 def week_str_to_int(week):  # convert a month's name to a float number
     try:
         week_num = week.strip("week_")
